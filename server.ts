@@ -11,6 +11,7 @@ import {
   createEntity,
   updateEntity,
   deleteEntity,
+  resetEntities,
 } from './api/routes.ts';
 
 const router = new Router();
@@ -24,7 +25,8 @@ router
   .get(`${prevPath}/`, getEntities)
   .post(`${prevPath}/add`, createEntity)
   .post(`${prevPath}/update`, updateEntity)
-  .post(`${prevPath}/delete`, deleteEntity);
+  .post(`${prevPath}/delete`, deleteEntity)
+  .get(`${prevPath}/reset`, resetEntities);
 
 const port: number = parseInt(config().API_PORT);
 const app = new Application();

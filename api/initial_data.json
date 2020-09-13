@@ -1,0 +1,50 @@
+[
+  {
+    "id": "hero-1",
+    "name": "Thor",
+    "tagline": "Mighty Thor, The Mightiest Avenger",
+    "category": "heroes"
+  },
+  {
+    "id": "hero-2",
+    "name": "Iron Man",
+    "tagline": "Invincible Iron Man",
+    "category": "heroes"
+  },
+  {
+    "id": "hero-3",
+    "name": "Deadpool",
+    "tagline": "Merc with the Mouth",
+    "category": "heroes"
+  },
+  {
+    "id": "hero-4",
+    "name": "Aquaman",
+    "tagline": "King of the Seven Seas",
+    "category": "villains"
+  },
+  {
+    "id": "villain-1",
+    "name": "Joker",
+    "tagline": "Why so serious?",
+    "category": "villains"
+  },
+  {
+    "id": "villain-2",
+    "name": "Loki",
+    "tagline": "You Will Always Kneel",
+    "category": "villains"
+  },
+  {
+    "id": "villain-3",
+    "name": "Magneto",
+    "tagline": "They No Longer Matter.",
+    "category": "villains"
+  },
+  {
+    "id": "villain-4",
+    "name": "The Green Goblin",
+    "tagline": "Why Bother?",
+    "category": "heroes"
+  }
+]

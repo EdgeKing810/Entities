@@ -106,4 +106,18 @@ const deleteEntity = async (ctx: RouterContext) => {
   }
 };
 
-export { getEntities, createEntity, updateEntity, deleteEntity };
+const resetEntities = (ctx: RouterContext) => {
+  entities.deleteMany({});
+
+  Deno.readTextFile('./api/initial_data.json').then((data) => {
+    JSON.parse(data).forEach((item: object) => {
+      const entity = { ...item, modified: new Date() };
+      entities.insertOne(entity);
+    });
+  });
+
+  ctx.response.status = 200;
+  ctx.response.body = 'Records purged and resetted.';
+};
+
+export { getEntities, createEntity, updateEntity, deleteEntity, resetEntities };
