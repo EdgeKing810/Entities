@@ -5,7 +5,12 @@ import {
 } from 'https://deno.land/x/oak/mod.ts';
 import { config } from 'https://deno.land/x/dotenv/mod.ts';
 
-import { getEntities, createEntity, updateEntity } from './api/routes.ts';
+import {
+  getEntities,
+  createEntity,
+  updateEntity,
+  deleteEntity,
+} from './api/routes.ts';
 
 const router = new Router();
 const prevPath = '/api/v1';
@@ -17,8 +22,8 @@ router
   })
   .get(`${prevPath}/`, getEntities)
   .post(`${prevPath}/add`, createEntity)
-  .post(`${prevPath}/update`, updateEntity);
-//   .delete('/delete', deleteHero);
+  .post(`${prevPath}/update`, updateEntity)
+  .post(`${prevPath}/delete`, deleteEntity);
 
 const port: number = parseInt(config().API_PORT);
 const app = new Application();

@@ -12,7 +12,7 @@ const createEntity = async (ctx: RouterContext) => {
 
   if (!value || !category || !id || !name || !tagline) {
     ctx.response.status = 400;
-    ctx.response.body = 'Invalid post data in request';
+    ctx.response.body = 'Invalid post data in request.';
     return;
   }
 
@@ -48,7 +48,7 @@ const updateEntity = async (ctx: RouterContext) => {
 
   if (!value || !id || !name || !tagline) {
     ctx.response.status = 400;
-    ctx.response.body = 'Inalid post data in request';
+    ctx.response.body = 'Inalid post data in request.';
     return;
   }
 
@@ -78,4 +78,25 @@ const updateEntity = async (ctx: RouterContext) => {
   }
 };
 
-export { getEntities, createEntity, updateEntity };
+const deleteEntity = async (ctx: RouterContext) => {
+  const { value } = ctx.request.body({ type: 'json' });
+  const { id } = await value;
+
+  if (!value || !id) {
+    ctx.response.status = 400;
+    ctx.response.body = 'Invalid post data in request.';
+    return;
+  }
+
+  const result = await entities.deleteOne({ id: id });
+
+  if (result) {
+    ctx.response.status = 200;
+    ctx.response.body = 'Entity successfully deleted!';
+  } else {
+    ctx.response.status = 500;
+    ctx.response.body = 'Error. Please try again';
+  }
+};
+
+export { getEntities, createEntity, updateEntity, deleteEntity };
