@@ -31,6 +31,5 @@ const app = new Application();
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app
-  .listen({ port: port })
-  .then(() => console.log(`Listening on port: ${port}`));
+app.listen({ port: port });
+console.log(`Listening on port: ${port}`);

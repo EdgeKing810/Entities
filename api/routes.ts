@@ -82,6 +82,13 @@ const deleteEntity = async (ctx: RouterContext) => {
   const { value } = ctx.request.body({ type: 'json' });
   const { id } = await value;
 
+  const existing = await entities.findOne({ id: id });
+  if (!existing) {
+    ctx.response.status = 404;
+    ctx.response.body = "Entity with this ID doesn't exist.";
+    return;
+  }
+
   if (!value || !id) {
     ctx.response.status = 400;
     ctx.response.body = 'Invalid post data in request.';
@@ -95,7 +102,7 @@ const deleteEntity = async (ctx: RouterContext) => {
     ctx.response.body = 'Entity successfully deleted!';
   } else {
     ctx.response.status = 500;
-    ctx.response.body = 'Error. Please try again';
+    ctx.response.body = 'Error. Please try again.';
   }
 };
 
