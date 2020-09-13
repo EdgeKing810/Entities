@@ -8,7 +8,6 @@ import { config } from 'https://deno.land/x/dotenv/mod.ts';
 import { getEntities, createEntity, updateEntity } from './api/routes.ts';
 
 const router = new Router();
-
 const prevPath = '/api/v1';
 
 router
@@ -18,7 +17,7 @@ router
   })
   .get(`${prevPath}/`, getEntities)
   .post(`${prevPath}/add`, createEntity)
-  .post('/update', updateEntity);
+  .post(`${prevPath}/update`, updateEntity);
 //   .delete('/delete', deleteHero);
 
 const port: number = parseInt(config().API_PORT);

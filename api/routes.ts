@@ -16,6 +16,16 @@ const createEntity = async (ctx: RouterContext) => {
     return;
   }
 
+  const existing = await entities.findOne({ id: id });
+  if (existing) {
+    ctx.response.status = 400;
+    ctx.response.body = 'Entity with this ID already exists.';
+    return;
+  } else {
+    ctx.response.status = 500;
+    ctx.response.body = 'Error. Please try again.';
+  }
+
   const newEntity = {
     id,
     name,
@@ -24,15 +34,17 @@ const createEntity = async (ctx: RouterContext) => {
     modified: new Date(),
   };
 
-  entities.insertOne(newEntity);
+  const result = await entities.insertOne(newEntity);
 
-  ctx.response.status = 200;
-  ctx.response.body = `Entity ${name} successfully added!`;
+  if (result) {
+    ctx.response.status = 200;
+    ctx.response.body = `Entity ${name} successfully added!`;
+  }
 };
 
 const updateEntity = async (ctx: RouterContext) => {
   const { value } = ctx.request.body({ type: 'json' });
-  const { category, id, name, tagline } = await value;
+  const { id, name, tagline } = await value;
 
   if (!value || !id || !name || !tagline) {
     ctx.response.status = 400;
@@ -40,18 +52,30 @@ const updateEntity = async (ctx: RouterContext) => {
     return;
   }
 
+  const existing = await entities.findOne({ id: id });
+  if (!existing) {
+    ctx.response.status = 404;
+    ctx.response.body = "Entity with this ID doesn't exist.";
+    return;
+  }
+
   const updatedEntity = {
-    id,
+    id: existing.category,
     name,
     tagline,
-    category,
+    category: existing.category,
     modified: new Date(),
   };
 
-  entities.updateOne({ id: id }, { $set: updatedEntity });
+  const result = await entities.updateOne({ id: id }, { $set: updatedEntity });
 
-  ctx.response.status = 200;
-  ctx.response.body = `Entity ${name} sucessfully modified!`;
+  if (result) {
+    ctx.response.status = 200;
+    ctx.response.body = `Entity ${name} sucessfully modified!`;
+  } else {
+    ctx.response.status = 500;
+    ctx.response.body = 'Error. Please try again.';
+  }
 };
 
 export { getEntities, createEntity, updateEntity };
