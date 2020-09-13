@@ -4,6 +4,7 @@ import {
   RouterContext,
 } from 'https://deno.land/x/oak/mod.ts';
 import { config } from 'https://deno.land/x/dotenv/mod.ts';
+import { oakCors } from 'https://deno.land/x/cors/mod.ts';
 
 import {
   getEntities,
@@ -30,6 +31,11 @@ const app = new Application();
 
 app.use(router.routes());
 app.use(router.allowedMethods());
+app.use(
+  oakCors({
+    origin: 'http://localhost:3000',
+  })
+);
 
 app.listen({ port: port });
 console.log(`Listening on port: ${port}`);
