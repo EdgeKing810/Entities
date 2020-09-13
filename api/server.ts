@@ -12,7 +12,7 @@ import {
   updateEntity,
   deleteEntity,
   resetEntities,
-} from './api/routes.ts';
+} from './routes.ts';
 
 const router = new Router();
 const prevPath = '/api/v1';
