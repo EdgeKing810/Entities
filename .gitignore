@@ -1,2 +1,3 @@
 mongo-volume/
 .deno_plugins/
+.env
