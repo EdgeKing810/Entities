@@ -1,12 +1,24 @@
-import { Application, Router } from 'https://deno.land/x/oak/mod.ts';
+import {
+  Application,
+  Router,
+  RouterContext,
+} from 'https://deno.land/x/oak/mod.ts';
 import { config } from 'https://deno.land/x/dotenv/mod.ts';
 
-import { getHeroes, createHero } from './api/routes.ts';
+import { getEntities, createEntity, updateEntity } from './api/routes.ts';
 
 const router = new Router();
 
-router.get('/', getHeroes).post('/add', createHero);
-// .post('/update', updateHero);
+const prevPath = '/api/v1';
+
+router
+  .get('/', (ctx: RouterContext) => {
+    ctx.response.status = 200;
+    ctx.response.body = "Welcome to KinesisGames' Entities API!";
+  })
+  .get(`${prevPath}/`, getEntities)
+  .post(`${prevPath}/add`, createEntity)
+  .post('/update', updateEntity);
 //   .delete('/delete', deleteHero);
 
 const port: number = parseInt(config().API_PORT);

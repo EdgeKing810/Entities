@@ -4,7 +4,7 @@ db.createUser({
   roles: [
     {
       role: 'readWrite',
-      db: 'heroes_db',
+      db: 'entities_db',
     },
   ],
 });
