@@ -29,13 +29,10 @@ router
 const port: number = parseInt(config().API_PORT);
 const app = new Application();
 
+app.use(oakCors());
+
 app.use(router.routes());
 app.use(router.allowedMethods());
-app.use(
-  oakCors({
-    origin: 'http://localhost:3000',
-  })
-);
 
 app.listen({ port: port });
 console.log(`Listening on port: ${port}`);
