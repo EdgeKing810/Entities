@@ -14,3 +14,45 @@ services:
       - ./mongo-volume:/data/db
     ports:
       - ${DB_PORT}:27017
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.1
+
+  frontend:
+    image: 'node'
+    container_name: '${PROJECT_NAME}-front'
+    restart: always
+    stdin_open: true
+    depends_on:
+      - backend
+    volumes:
+      - ./front:/usr/src/app
+    ports:
+      - ${FRONTEND_PORT}:3000
+    command: >
+      bash -c "cd /usr/src/app && npm install && npm start"
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.2
+
+  backend:
+    image: 'debian'
+    container_name: '${PROJECT_NAME}-api'
+    restart: always
+    stdin_open: true
+    depends_on:
+      - database
+    volumes:
+      - ./api:/usr/src/app
+    ports:
+      - ${API_PORT}:7000
+    command: bash /usr/src/app/runServer.sh
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.3
+
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

@@ -1,3 +1,9 @@
 mongo-volume/
-.deno_plugins/
-.env
+
+api/.deno_plugins/
+
+front/node_modules
+front/package-lock.json
+front/yarn*
+front/build/
+front/public/styles.css
