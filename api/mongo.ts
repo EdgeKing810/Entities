@@ -1,5 +1,5 @@
-import { MongoClient } from 'https://deno.land/x/mongo@v0.11.1/mod.ts';
-import { config } from 'https://deno.land/x/dotenv/mod.ts';
+import { MongoClient } from "https://deno.land/x/mongo/mod.ts";
+import { config } from "https://deno.land/x/dotenv/mod.ts";
 
 const client = new MongoClient();
 client.connectWithUri(`${config().URI}`);
@@ -12,7 +12,7 @@ interface EntitySchema {
   modified: Date;
 }
 
-const db = client.database('entities_db');
-const entities = db.collection<EntitySchema>('entities');
+const db = client.database("entities_db");
+const entities = db.collection<EntitySchema>("entities");
 
 export default entities;

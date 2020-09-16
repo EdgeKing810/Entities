@@ -2,9 +2,9 @@ import {
   Application,
   Router,
   RouterContext,
-} from 'https://deno.land/x/oak/mod.ts';
-import { config } from 'https://deno.land/x/dotenv/mod.ts';
-import { oakCors } from 'https://deno.land/x/cors/mod.ts';
+} from "https://deno.land/x/oak/mod.ts";
+import { config } from "https://deno.land/x/dotenv/mod.ts";
+import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
 import {
   getEntities,
@@ -12,13 +12,13 @@ import {
   updateEntity,
   deleteEntity,
   resetEntities,
-} from './routes.ts';
+} from "./routes.ts";
 
 const router = new Router();
-const prevPath = '/api/v1';
+const prevPath = "/api/v1";
 
 router
-  .get('/', (ctx: RouterContext) => {
+  .get("/", (ctx: RouterContext) => {
     ctx.response.status = 200;
     ctx.response.body = "Welcome to KinesisGames' Entities API!";
   })

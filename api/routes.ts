@@ -1,5 +1,5 @@
-import { RouterContext } from 'https://deno.land/x/oak/mod.ts';
-import entities from './mongo.ts';
+import { RouterContext } from "https://deno.land/x/oak/mod.ts";
+import entities from "./mongo.ts";
 
 const getEntities = async (ctx: RouterContext) => {
   const items = await entities.find();
@@ -7,23 +7,23 @@ const getEntities = async (ctx: RouterContext) => {
 };
 
 const createEntity = async (ctx: RouterContext) => {
-  const { value } = ctx.request.body({ type: 'json' });
+  const { value } = ctx.request.body({ type: "json" });
   const { category, id, name, tagline } = await value;
 
   if (!value || !category || !id || !name || !tagline) {
     ctx.response.status = 400;
-    ctx.response.body = 'Invalid post data in request.';
+    ctx.response.body = "Invalid post data in request.";
     return;
   }
 
   const existing = await entities.findOne({ id: id });
   if (existing) {
     ctx.response.status = 400;
-    ctx.response.body = 'Entity with this ID already exists.';
+    ctx.response.body = "Entity with this ID already exists.";
     return;
   } else {
     ctx.response.status = 500;
-    ctx.response.body = 'Error. Please try again.';
+    ctx.response.body = "Error. Please try again.";
   }
 
   const newEntity = {
@@ -43,12 +43,12 @@ const createEntity = async (ctx: RouterContext) => {
 };
 
 const updateEntity = async (ctx: RouterContext) => {
-  const { value } = ctx.request.body({ type: 'json' });
+  const { value } = ctx.request.body({ type: "json" });
   const { id, name, tagline } = await value;
 
   if (!value || !id || !name || !tagline) {
     ctx.response.status = 400;
-    ctx.response.body = 'Inalid post data in request.';
+    ctx.response.body = "Inalid post data in request.";
     return;
   }
 
@@ -74,12 +74,12 @@ const updateEntity = async (ctx: RouterContext) => {
     ctx.response.body = `Entity ${name} sucessfully modified!`;
   } else {
     ctx.response.status = 500;
-    ctx.response.body = 'Error. Please try again.';
+    ctx.response.body = "Error. Please try again.";
   }
 };
 
 const deleteEntity = async (ctx: RouterContext) => {
-  const { value } = ctx.request.body({ type: 'json' });
+  const { value } = ctx.request.body({ type: "json" });
   const { id } = await value;
 
   const existing = await entities.findOne({ id: id });
@@ -91,7 +91,7 @@ const deleteEntity = async (ctx: RouterContext) => {
 
   if (!value || !id) {
     ctx.response.status = 400;
-    ctx.response.body = 'Invalid post data in request.';
+    ctx.response.body = "Invalid post data in request.";
     return;
   }
 
@@ -99,17 +99,17 @@ const deleteEntity = async (ctx: RouterContext) => {
 
   if (result) {
     ctx.response.status = 200;
-    ctx.response.body = 'Entity successfully deleted!';
+    ctx.response.body = "Entity successfully deleted!";
   } else {
     ctx.response.status = 500;
-    ctx.response.body = 'Error. Please try again.';
+    ctx.response.body = "Error. Please try again.";
   }
 };
 
 const resetEntities = (ctx: RouterContext) => {
   entities.deleteMany({});
 
-  Deno.readTextFile('./api/initial_data.json').then((data) => {
+  Deno.readTextFile("./api/initial_data.json").then((data) => {
     JSON.parse(data).forEach((item: object) => {
       const entity = { ...item, modified: new Date() };
       entities.insertOne(entity);
@@ -117,7 +117,7 @@ const resetEntities = (ctx: RouterContext) => {
   });
 
   ctx.response.status = 200;
-  ctx.response.body = 'Records purged and resetted.';
+  ctx.response.body = "Records purged and resetted.";
 };
 
 export { getEntities, createEntity, updateEntity, deleteEntity, resetEntities };
