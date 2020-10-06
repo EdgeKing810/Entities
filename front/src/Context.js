@@ -6,10 +6,12 @@ const Context = React.createContext();
 export default function Provider(props) {
   const [heroes, setHeroes] = useState([]);
   const [villains, setVillains] = useState([]);
+  const [disney, setDisney] = useState([]);
 
   const fetchData = () => {
     setHeroes([]);
     setVillains([]);
+    setDisney([]);
 
     axios.get(`${process.env.REACT_APP_API_URL}/`).then((res) =>
       res.data.forEach((item) => {
@@ -18,6 +20,9 @@ export default function Provider(props) {
         } else if (item.category === 'villains') {
           setVillains((prev) => [...prev, item]);
         }
+          else if(item.category === 'disney') {
+            setDisney((prev) => [...prev,item]);
+          }
       })
     );
   };
@@ -44,6 +49,13 @@ export default function Provider(props) {
       path: 'villains',
       color: 'red',
       context: [villains, setVillains],
+    },
+    {
+      id: 2,
+      title: 'Disney Characters',
+      path: 'disney',
+      color: 'yellow',
+      context: [disney, setDisney],
     },
   ];
 
