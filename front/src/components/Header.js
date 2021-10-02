@@ -8,7 +8,7 @@ export default function Header() {
       <div className="flex items-center sm:w-1/2">
         <a
           href="https://www.kinesis.games"
-          className="sm:w-20 w-12 ml-2 hover:bg-gray-700 focus:bg-gray-700 rounded-lg"
+          className="sm:w-20 w-12 ml-2 hover:bg-gray-700 focus:bg-gray-700 rounded-lg transition duration-300 ease-in-out"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -29,7 +29,7 @@ export default function Header() {
           href="https://github.com/EdgeKing810"
           target="_blank"
           rel="noopener noreferrer"
-          className="sm:w-16 w-12 sm:h-16 h-12 hover:bg-gray-700 focus:bg-gray-700 flex justify-center items-center mr-2 rounded-full"
+          className="sm:w-16 w-12 sm:h-16 h-12 hover:bg-gray-700 focus:bg-gray-700 flex justify-center items-center mr-2 rounded-full transition duration-300 ease-in-out"
         >
           <i className="ri-github-line sm:text-3xl text-2xl text-blue-300"></i>
         </a>

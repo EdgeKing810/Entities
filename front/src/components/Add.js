@@ -76,7 +76,7 @@ export default function Add({ title, prev, color, context }) {
             <button
               className={`border-t-2 border-gray-800 w-1/45 py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center ${
                 name && tagline
-                  ? `hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300`
+                  ? `hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300 transition duration-300 ease-in-out`
                   : `opacity-50`
               }`}
               type="submit"
@@ -85,7 +85,7 @@ export default function Add({ title, prev, color, context }) {
               Add <i className="ri-save-line ml-2" />
             </button>
             <Link
-              className={`border-t-2 border-gray-800 w-1/45 py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300`}
+              className={`border-t-2 border-gray-800 w-1/45 py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300 transition duration-300 ease-in-out`}
               to={`/${prev}`}
             >
               Cancel <i className="ri-close-line ml-2" />

@@ -68,13 +68,13 @@ export default function List({ title, prev, color, context, reset }) {
       </div>
       <div className="flex w-full rounded-b mt-6 justify-around">
         <Link
-          className={`border-t-2 border-gray-800 w-1/45 py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300`}
+          className={`border-t-2 border-gray-800 w-1/45 py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300 transition duration-300 ease-in-out`}
           to={`/${prev}/edit/${value.id}`}
         >
           Edit <i className="ri-pencil-line ml-2" />
         </Link>
         <button
-          className={`border-t-2 border-gray-800 w-1/45 py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300`}
+          className={`border-t-2 border-gray-800 w-1/45 py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300 transition duration-300 ease-in-out`}
           onClick={(e) => prepareDelete(value)}
         >
           Delete <i className="ri-delete-bin-line ml-2" />
@@ -93,10 +93,10 @@ export default function List({ title, prev, color, context, reset }) {
         </div>
         <Link
           to={`/${prev}/add`}
-          className={`ri-add-line sm:text-4xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2`}
+          className={`ri-add-line sm:text-4xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2 transition duration-300 ease-in-out`}
         />
         <button
-          className={`ri-refresh-line sm:text-3xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2`}
+          className={`ri-refresh-line sm:text-3xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2 transition duration-300 ease-in-out`}
           onClick={() => prepareRefresh()}
         />
       </div>
@@ -115,13 +115,13 @@ export default function List({ title, prev, color, context, reset }) {
             <div className="flex items-end h-full justify-between my-auto">
               <button
                 onClick={() => deleteItem(currentValue.id)}
-                className="w-2/5 font-nanum text-gray-500 py-1 font-bold rounded-lg border-2 border-dashed border-green-200 hover:text-gray-900 hover:bg-green-200 focus:text-gray-900 focus:bg-green-200"
+                className="w-2/5 font-nanum text-gray-500 py-1 font-bold rounded-lg border-2 border-dashed border-green-200 hover:text-gray-900 hover:bg-green-200 focus:text-gray-900 focus:bg-green-200 transition duration-300 ease-in-out"
               >
                 Yes
               </button>
               <button
                 onClick={() => cancelDelete()}
-                className="w-2/5 font-nanum text-gray-500 py-1 font-bold rounded-lg border-2 border-dashed border-red-200 hover:text-gray-900 hover:bg-red-200 focus:text-gray-900 focus:bg-red-200"
+                className="w-2/5 font-nanum text-gray-500 py-1 font-bold rounded-lg border-2 border-dashed border-red-200 hover:text-gray-900 hover:bg-red-200 focus:text-gray-900 focus:bg-red-200 transition duration-300 ease-in-out"
               >
                 No
               </button>
