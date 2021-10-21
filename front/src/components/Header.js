@@ -4,7 +4,7 @@ import k_logo from './k_logo.png';
 
 export default function Header() {
   return (
-    <div className="sm:h-24 h-16 bg-gray-900 flex items-center justify-between w-screen">
+    <div className="sm:h-24 h-16 bg-gray-900 flex items-center justify-between w-full">
       <div className="flex items-center sm:w-1/2">
         <a
           href="https://www.kinesis.games"
