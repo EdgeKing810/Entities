@@ -49,7 +49,7 @@ export default function SideNavbar() {
 
   const burger = () => (
     <button
-      className="ml-2 px-2 flex items-center justify-center rounded-full hover:bg-gray-900 focus:bg-gray-900 transition duration-300 ease-in-out"
+      className="ml-2 px-2 flex items-center justify-center rounded-full cursor-pointer hover:bg-gray-900 focus:bg-gray-900 transition duration-300 ease-in-out"
       onClick={() => setListOpen((prev) => !prev)}
     >
       <i className="ri-menu-line sm:text-2xl" />
