@@ -94,10 +94,12 @@ export default function List({ title, prev, color, context, reset }) {
         <Link
           to={`/${prev}/add`}
           className={`ri-add-line sm:text-4xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2 transition duration-300 ease-in-out`}
+          title="Add new"
         />
         <button
           className={`ri-refresh-line sm:text-3xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2 transition duration-300 ease-in-out`}
           onClick={() => prepareRefresh()}
+          title="Reset data"
         />
       </div>
       <div
