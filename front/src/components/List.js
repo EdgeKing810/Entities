@@ -59,7 +59,7 @@ export default function List({ title, prev, color, context, reset }) {
       key={value.id}
     >
       <div
-        className={`font-karla tracking-wider text-${color}-300 sm:text-3xl text-xl`}
+        className={`font-karla tracking-wider text-${color}-600 sm:text-3xl text-xl`}
       >
         {value.name}
       </div>
@@ -87,17 +87,17 @@ export default function List({ title, prev, color, context, reset }) {
     <div className="w-full sm:h-nearly">
       <div className="w-full flex items-center mb-4">
         <div
-          className={`font-nanum tracking-widest font-extrabold text-gray-300 sm:text-4xl text-2xl text-lg border-${color}-400 border-l-12 border-b-2 pl-2 sm:w-1/5`}
+          className={`font-nanum tracking-widest font-extrabold text-gray-300 sm:text-4xl text-2xl text-lg border-${color}-600 border-l-12 border-b-2 pl-2 sm:w-1/5`}
         >
           {title}
         </div>
         <Link
           to={`/${prev}/add`}
-          className={`ri-add-line sm:text-4xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2 transition duration-300 ease-in-out`}
+          className={`ri-add-circle-fill sm:text-4xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2 transition duration-300 ease-in-out`}
           title="Add new"
         />
         <button
-          className={`ri-refresh-line sm:text-3xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2 transition duration-300 ease-in-out`}
+          className={`ri-refresh-fill sm:text-3xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2 transition duration-300 ease-in-out`}
           onClick={() => prepareRefresh()}
           title="Reset data"
         />
@@ -105,9 +105,9 @@ export default function List({ title, prev, color, context, reset }) {
       <div
         className={`${
           showDelete
-            ? 'z-50 fixed sm:h-screen h-full sm:w-3/5 w-5/6 sm:p-8'
+            ? 'z-50 fixed sm:h-screen h-full sm:w-3/5 w-5/6'
             : 'opacity-0 h-0 w-0'
-        } bg-gray-800 flex justify-center`}
+        } bg-gray-800 flex justify-left`}
       >
         <div className="rounded sm:w-3/5 w-5/6 sm:h-1/5 h-2/5 sm:mt-8 mt-2 bg-gray-800 sm:border-2 sm:border-gray-500 flex flex-col items-center">
           <div
@@ -136,7 +136,7 @@ export default function List({ title, prev, color, context, reset }) {
           items
         ) : (
           <div
-            className={`font-karla tracking-wider text-${color}-300 sm:text-3xl text-xl`}
+            className={`font-karla tracking-wider text-${color}-600 sm:text-3xl text-xl`}
           >
             {msg}
           </div>

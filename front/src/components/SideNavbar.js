@@ -73,7 +73,7 @@ export default function SideNavbar() {
 
   const list = navElements.map((nav) => (
     <div
-      className={`sm:p-2 sm:py-2 py-2 sm:pl-4 my-1 sm:text-left text-center sm:w-4/5 w-1/2 font-karla tracking-wide font-bold text-gray-400 sm:text-sm text-xs sm:mr-8 rounded-lg ${
+      className={`sm:p-2 sm:py-2 py-2 sm:pl-4 my-1 sm:text-left text-center sm:w-4/5 w-1/2 font-karla tracking-wide font-bold text-gray-400 sm:text-base text-sm sm:mr-8 rounded-lg ${
         nav.id === navID
           ? `bg-${nav.color}-600`
           : 'hover:bg-gray-700 focus:bg-gray-700'
@@ -91,7 +91,7 @@ export default function SideNavbar() {
   return (
     <div className="w-screen flex sm:flex-row flex-col sm:justify-around sm:items-start items-center">
       <div className="sm:w-1/5 w-5/6 flex flex-col sm:items-stretch items-center sm:mb-0 mb-2">
-        <div className="font-mono tracking-widest sm:text-lg text-md text-gray-300 uppercase flex flex-col sm:text-left text-center mb-2">
+        <div className="font-mono tracking-widest sm:text-xl text-md text-gray-300 uppercase flex flex-col sm:text-left text-center mb-2">
           <div className="flex items-center">Menu {burger()}</div>
         </div>
         <div
