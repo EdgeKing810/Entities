@@ -97,7 +97,7 @@ export default function List({ title, prev, color, context, reset }) {
           title="Add new"
         />
         <button
-          className={`ri-refresh-fill sm:text-3xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2 transition duration-300 ease-in-out`}
+          className={`ri-refresh-fill sm:text-4xl text-2xl font-bold text-gray-500 hover:text-${color}-300 ml-2 transition duration-300 ease-in-out`}
           onClick={() => prepareRefresh()}
           title="Reset data"
         />
