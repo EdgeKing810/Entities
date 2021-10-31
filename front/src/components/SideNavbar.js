@@ -72,7 +72,7 @@ export default function SideNavbar() {
   }, []);
 
   const list = navElements.map((nav) => (
-    <div
+    <button
       className={`sm:p-2 sm:py-2 py-2 sm:pl-4 my-1 sm:text-left text-center sm:w-4/5 w-1/2 font-karla tracking-wide font-bold text-gray-400 sm:text-base text-sm sm:mr-8 rounded-lg ${
         nav.id === navID
           ? `bg-${nav.color}-600`
@@ -85,7 +85,7 @@ export default function SideNavbar() {
       key={`nav-${nav.id}`}
     >
       {nav.title}
-    </div>
+    </button>
   ));
 
   return (
