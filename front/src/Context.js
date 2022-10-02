@@ -7,6 +7,7 @@ export default function Provider(props) {
   const [heroes, setHeroes] = useState([]);
   const [villains, setVillains] = useState([]);
   const [cartoons, setCartoons] = useState([]);
+  const [disney, setDisney] = useState([]);
 
   const fetchData = () => {
     setHeroes([]);
@@ -20,6 +21,8 @@ export default function Provider(props) {
           setVillains((prev) => [...prev, item]);
         } else if (item.category === 'cartoons') {
           setCartoons((prev) => [...prev, item]);
+        } else if (item.category === 'disney') {
+          setDisney((prev) => [...prev, item]);
         }
       })
     );
@@ -54,6 +57,13 @@ export default function Provider(props) {
       path: 'cartoons',
       color: 'yellow',
       context: [cartoons, setCartoons],
+    },
+    {
+      id: 3,
+      title: 'Disney',
+      path: 'disney',
+      color: 'pink',
+      context: [disney, setDisney],
     },
   ];
 
