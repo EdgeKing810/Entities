@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default function List({ title, prev, color, context, reset }) {
+export default function List({ title, prev, color, context, reset, API_URL }) {
   const [values, func] = context;
 
   const [currentValue, setCurrentValue] = useState({});
@@ -42,7 +42,7 @@ export default function List({ title, prev, color, context, reset }) {
     func(values.filter((value) => value.id !== id));
     setShowDelete(false);
 
-    axios.post(`${process.env.REACT_APP_API_URL}/delete`, {
+    axios.post(`${API_URL}/delete`, {
       id: id,
     });
   };

@@ -14,7 +14,7 @@ import Add from './Add';
 import Edit from './Edit';
 
 export default function SideNavbar() {
-  const { navID, setNavID, navElements, reset } = useContext(Context);
+  const { navID, setNavID, navElements, reset, API_URL } = useContext(Context);
   const [listOpen, setListOpen] = useState(true);
 
   const routes = navElements.map((nav) => (
@@ -26,6 +26,7 @@ export default function SideNavbar() {
           prev={nav.path}
           context={nav.context}
           reset={reset}
+          API_URL={API_URL}
         />
       </Route>
       <Route exact path={`/${nav.path}/edit/:itemID`}>
@@ -34,6 +35,7 @@ export default function SideNavbar() {
           color={nav.color}
           prev={nav.path}
           context={nav.context}
+          API_URL={API_URL}
         />
       </Route>
       <Route exact path={`/${nav.path}/add`}>
@@ -42,6 +44,7 @@ export default function SideNavbar() {
           color={nav.color}
           prev={nav.path}
           context={nav.context}
+          API_URL={API_URL}
         />
       </Route>
     </Switch>

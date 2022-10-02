@@ -9,11 +9,15 @@ export default function Provider(props) {
   const [cartoons, setCartoons] = useState([]);
   const [disney, setDisney] = useState([]);
 
+  const [API_URL] = useState('http://172.20.128.3:7000/api/v1');
+
   const fetchData = () => {
     setHeroes([]);
     setVillains([]);
+    setCartoons([]);
+    setDisney([]);
 
-    axios.get(`${process.env.REACT_APP_API_URL}/`).then((res) =>
+    axios.get(`${API_URL}/`).then((res) =>
       res.data.forEach((item) => {
         if (item.category === 'heroes') {
           setHeroes((prev) => [...prev, item]);
@@ -33,7 +37,7 @@ export default function Provider(props) {
   }, []);
 
   const reset = () => {
-    axios.get(`${process.env.REACT_APP_API_URL}/reset`).then(() => fetchData());
+    axios.get(`${API_URL}/reset`).then(() => fetchData());
   };
 
   const navElements = [
