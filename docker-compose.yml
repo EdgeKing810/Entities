@@ -19,10 +19,11 @@ services:
         ipv4_address: 172.20.128.1
 
   frontend:
-    image: 'node'
+    image: 'node:16'
     container_name: '${PROJECT_NAME}-front'
     restart: always
     stdin_open: true
+    user: 0:0
     depends_on:
       - backend
     volumes:
@@ -30,23 +31,41 @@ services:
     ports:
       - ${FRONTEND_PORT}:3000
     command: >
-      bash -c "cd /usr/src/app && npm install && npm start"
+      bash -c 'cd /usr/src/app && npm install --cache=".npm" && npm start --cache=".npm"'
     networks:
       static-network:
         ipv4_address: 172.20.128.2
 
+  # backend:
+  #   image: 'debian'
+  #   container_name: '${PROJECT_NAME}-api'
+  #   restart: always
+  #   stdin_open: true
+  #   depends_on:
+  #     - database
+  #   volumes:
+  #     - ./api:/usr/src/app
+  #   ports:
+  #     - ${API_PORT}:7000
+  #   command: bash /usr/src/app/runServer.sh
+  #   networks:
+  #     static-network:
+  #       ipv4_address: 172.20.128.3
+
   backend:
-    image: 'debian'
+    image: 'node:16'
     container_name: '${PROJECT_NAME}-api'
     restart: always
     stdin_open: true
+    user: 0:0
     depends_on:
       - database
     volumes:
-      - ./api:/usr/src/app
+      - ./api-nodejs:/usr/src/app
     ports:
       - ${API_PORT}:7000
-    command: bash /usr/src/app/runServer.sh
+    command: >
+      bash -c "cd /usr/src/app && npm i -g nodemon && npm install && npm run dev"
     networks:
       static-network:
         ipv4_address: 172.20.128.3

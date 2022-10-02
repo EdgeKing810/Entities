@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import axios from 'axios';
 
-export default function Add({ title, prev, color, context }) {
+export default function Add({ title, prev, color, context, API_URL }) {
   const func = context[1];
 
   const { v1 } = require('uuid');
@@ -24,7 +24,7 @@ export default function Add({ title, prev, color, context }) {
 
     func((previous) => [...previous, newItem]);
 
-    axios.post(`${process.env.REACT_APP_API_URL}/add`, {
+    axios.post(`${API_URL}/add`, {
       ...newItem,
       category: prev,
     });

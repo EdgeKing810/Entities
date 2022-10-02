@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-export default function Edit({ title, prev, color, context }) {
+export default function Edit({ title, prev, color, context, API_URL }) {
   const [values, func] = context;
   const { itemID } = useParams();
 
@@ -22,7 +22,7 @@ export default function Edit({ title, prev, color, context }) {
       tagline: localTagline,
     };
 
-    axios.post(`${process.env.REACT_APP_API_URL}/update`, {
+    axios.post(`${API_URL}/update`, {
       ...updatedItem,
       category: prev,
     });
