@@ -35,7 +35,7 @@ export default function Edit({ title, prev, color, context, API_URL }) {
 
   return (
     <div className="w-full">
-      <div className="sm:w-5/6 w-full rounded border-2 border-gray-900 mb-4 sm:mx-0 mx-auto bg-gray-900">
+      <div className="sm:w-5/6 w-full rounded border-2 border-gray-900 mb-4 sm:mx-0 bg-gray-900">
         <form
           onSubmit={(e) => (localName && localTagline ? submitChange(e) : null)}
           className="w-full"
@@ -53,7 +53,7 @@ export default function Edit({ title, prev, color, context, API_URL }) {
             </div>
             <input
               type="text"
-              className={`w-full rounded bg-gray-400 p-2 border-4 border-gray-800 hover:bg-${color}-200 hover:border-${color}-700 focus:bg-${color}-200 focus:border-${color}-700`}
+              className={`w-full rounded bg-gray-400 p-2 border-4 border-gray-800 hover:bg-${color}-200 hover:border-${color}-700 focus:bg-${color}-200 focus:border-${color}-700 ease-in-out duration-300`}
               value={localName}
               onChange={(e) => setLocalName(e.target.value)}
               id="name"
@@ -66,27 +66,28 @@ export default function Edit({ title, prev, color, context, API_URL }) {
             </div>
             <input
               type="text"
-              className={`w-full rounded bg-gray-400 p-2 border-4 border-gray-800 hover:bg-${color}-200 hover:border-${color}-700 focus:bg-${color}-200 focus:border-${color}-700`}
+              className={`w-full rounded bg-gray-400 p-2 border-4 border-gray-800 hover:bg-${color}-200 hover:border-${color}-700 focus:bg-${color}-200 focus:border-${color}-700 ease-in-out duration-300`}
               value={localTagline}
               onChange={(e) => setLocalTagline(e.target.value)}
               id="tagline"
               name="tagline"
             />
           </div>
-          <div className="flex w-full rounded-b mt-6 justify-around">
+          <div className="flex w-full rounded-b mt-6 px-4 uppercase">
             <button
-              className={`border-t-2 border-gray-800 w-1/45 py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center ${
+              className={`border-t-2 border-gray-800 w-full py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center ${
                 localName && localTagline
                   ? `hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300 transition duration-300 ease-in-out`
                   : `opacity-50`
-              }`}
+              } uppercase`}
               type="submit"
               disabled={!localName && !localTagline}
             >
               Update <i className="ri-save-line ml-2" />
             </button>
+            <div className="mx-2" />
             <Link
-              className={`border-t-2 border-gray-800 w-1/45 py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300 transition duration-300 ease-in-out`}
+              className={`border-t-2 border-gray-800 w-full py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300 transition duration-300 ease-in-out`}
               to={`/${prev}`}
             >
               Cancel <i className="ri-close-line ml-2" />
