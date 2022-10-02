@@ -6,6 +6,7 @@ const Context = React.createContext();
 export default function Provider(props) {
   const [heroes, setHeroes] = useState([]);
   const [villains, setVillains] = useState([]);
+  const [cartoons, setCartoons] = useState([]);
 
   const fetchData = () => {
     setHeroes([]);
@@ -17,6 +18,8 @@ export default function Provider(props) {
           setHeroes((prev) => [...prev, item]);
         } else if (item.category === 'villains') {
           setVillains((prev) => [...prev, item]);
+        } else if (item.category === 'cartoons') {
+          setCartoons((prev) => [...prev, item]);
         }
       })
     );
@@ -44,6 +47,13 @@ export default function Provider(props) {
       path: 'villains',
       color: 'red',
       context: [villains, setVillains],
+    },
+    {
+      id: 2,
+      title: 'Cartoons',
+      path: 'cartoons',
+      color: 'yellow',
+      context: [cartoons, setCartoons],
     },
   ];
 
