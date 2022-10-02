@@ -49,7 +49,7 @@ export default function List({ title, prev, color, context, reset, API_URL }) {
 
   const items = sortedValues.map((value) => (
     <div
-      className="sm:w-5/6 w-full rounded pt-6 px-4 border-2 border-gray-900 mb-4 sm:mx-0 mx-auto bg-gray-900"
+      className="sm:w-5/6 w-full rounded sm:pt-6 pt-4 px-4 border-2 border-gray-900 mb-4 sm:mx-0 mx-auto bg-gray-900"
       key={value.id}
     >
       <div
@@ -60,7 +60,7 @@ export default function List({ title, prev, color, context, reset, API_URL }) {
       <div className="font-karla tracking-wider text-gray-600 sm:text-xl text-md">
         {value.tagline}
       </div>
-      <div className="flex w-full rounded-b mt-6 justify-around">
+      <div className="uppercase flex w-full rounded-b mt-6 justify-around">
         <Link
           className={`border-t-2 border-gray-800 w-full py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300 transition duration-300 ease-in-out`}
           to={`/${prev}/edit/${value.id}`}
@@ -69,7 +69,7 @@ export default function List({ title, prev, color, context, reset, API_URL }) {
         </Link>
         <div className="mx-2"></div>
         <button
-          className={`border-t-2 border-gray-800 w-full py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300 transition duration-300 ease-in-out`}
+          className={`uppercase border-t-2 border-gray-800 w-full py-2 font-nunito tracking-wider text-gray-500 font-bold sm:text-lg text-sm flex justify-center hover:text-${color}-300 focus:text-${color}-300 hover:border-${color}-300 focus:border-${color}-300 transition duration-300 ease-in-out`}
           onClick={(e) => prepareDelete(value)}
         >
           Delete <i className="ri-delete-bin-line ml-2" />
@@ -100,13 +100,13 @@ export default function List({ title, prev, color, context, reset, API_URL }) {
       <div
         className={`${
           showDelete
-            ? 'z-50 fixed sm:h-screen h-full sm:w-4/5 w-5/6'
+            ? 'z-50 fixed sm:h-screen h-full sm:w-4/5 w-full sm:top-auto top-0 sm:left-auto left-0'
             : 'opacity-0 h-0 w-0'
         } bg-gray-800 flex justify-left`}
       >
-        <div className="rounded sm:w-3/5 w-5/6 sm:h-1/5 h-2/5 sm:mt-8 mt-2 bg-gray-800 sm:border-4 sm:border-gray-500 flex flex-col items-center justify-center">
+        <div className="rounded sm:w-3/5 w-full sm:h-1/5 h-screen sm:mt-8 bg-gray-800 sm:border-4 sm:border-gray-500 flex flex-col items-center justify-center">
           <div
-            className={`font-karla tracking-wide text-${color}-200 font-bold sm:text-2xl text-lg sm:w-2/3`}
+            className={`font-karla tracking-wide text-${color}-200 font-bold sm:text-2xl text-lg sm:w-2/3 w-full lg:px-0 px-2`}
           >
             <div className="text-left">
               Confirm to delete {currentValue.name}?
@@ -115,14 +115,14 @@ export default function List({ title, prev, color, context, reset, API_URL }) {
             <div className="flex mt-4">
               <button
                 onClick={() => deleteItem(currentValue.id)}
-                className="w-full font-nanum text-gray-500 py-1 font-bold rounded-lg border-2 border-dashed border-green-200 hover:text-gray-900 hover:bg-green-200 focus:text-gray-900 focus:bg-green-200 transition duration-300 ease-in-out"
+                className="w-full uppercase font-nanum text-gray-500 py-1 font-bold rounded-lg border-2 border-dashed border-green-200 hover:text-gray-900 hover:bg-green-200 focus:text-gray-900 focus:bg-green-200 transition duration-300 ease-in-out"
               >
                 Yes
               </button>
               <div className="mx-2" />
               <button
                 onClick={() => cancelDelete()}
-                className="w-full font-nanum text-gray-500 py-1 font-bold rounded-lg border-2 border-dashed border-red-200 hover:text-gray-900 hover:bg-red-200 focus:text-gray-900 focus:bg-red-200 transition duration-300 ease-in-out"
+                className="w-full uppercase font-nanum text-gray-500 py-1 font-bold rounded-lg border-2 border-dashed border-red-200 hover:text-gray-900 hover:bg-red-200 focus:text-gray-900 focus:bg-red-200 transition duration-300 ease-in-out"
               >
                 No
               </button>
