@@ -46,5 +46,29 @@
     "name": "The Green Goblin",
     "tagline": "Why Bother?",
     "category": "villains"
+  },
+  {
+    "id": "cartoon-1",
+    "name": "Olaf",
+    "tagline": "Some people are worth melting for",
+    "category": "cartoons"
+  },
+  {
+    "id": "cartoon-2",
+    "name": "Marty",
+    "tagline": "As long as we are together; it doesn't matter to me",
+    "category": "cartoons"
+  },
+  {
+    "id": "cartoon-3",
+    "name": "Dory",
+    "tagline": "Just keep swimming",
+    "category": "cartoons"
+  },
+  {
+    "id": "cartoon-4",
+    "name": "Po",
+    "tagline": "There is no secret ingredient. It's just you",
+    "category": "cartoons"
   }
 ]
