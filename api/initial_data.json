@@ -70,5 +70,29 @@
     "name": "Po",
     "tagline": "There is no secret ingredient. It's just you",
     "category": "cartoons"
+  },
+  {
+    "id": "disney-1",
+    "name": "Buzz Lightyear",
+    "tagline": "To infinity and beyond",
+    "category": "disney"
+  },
+  {
+    "id": "disney-2",
+    "name": "The Fairy Godmother",
+    "tagline": "Even miracles take a little time",
+    "category": "disney"
+  },
+  {
+    "id": "disney-3",
+    "name": "Phineas",
+    "tagline": "The only thing that is impossible is impossibility",
+    "category": "disney"
+  },
+  {
+    "id": "disney-4",
+    "name": "Snow White",
+    "tagline": "You never too old to be young",
+    "category": "disney"
   }
 ]
