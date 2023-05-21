@@ -8,7 +8,7 @@ services:
     environment:
       - MONGO_INITDB_DATABASE=${PROJECT_NAME}_db
       - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=${ROOT_PASSWORD}
+      - MONGO_INITDB_ROOT_PASSWORD=root
     volumes:
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - ./mongo-volume:/data/db
@@ -31,7 +31,7 @@ services:
     ports:
       - ${FRONTEND_PORT}:3000
     command: >
-      bash -c 'cd /usr/src/app && npm install --cache=".npm" && npm start --cache=".npm"'
+      bash -c 'cd /usr/src/app && npm install --force && npm start'
     networks:
       static-network:
         ipv4_address: 172.20.128.2
